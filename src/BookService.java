@@ -1,4 +1,5 @@
 package src;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BookService {
@@ -28,32 +29,64 @@ public class BookService {
 	
 	public void deleteBook() {
 		Scanner scanner = new Scanner(System.in);
+
+		while(true) {
 		
-		System.out.print("削除したい本のIDを入力してください >");
-		int id = scanner.nextInt();
+			System.out.println(" ");
+			System.out.print("削除したい本のIDを入力してください >");
+
+			int id;
+
+				try {
+					id = scanner.nextInt();
+				} catch (InputMismatchException e) {
+					System.out.println(" ");
+					System.out.println("選択可能な数字を入力してください");
+					scanner.nextLine();
+					continue;
+				}
 		
-		System.out.println( "削除してよろしいですか？");
-		System.out.print("削除する : 1 | やめる : 2 >");
-		int deleteConfirm = scanner.nextInt();
-		
-		switch(deleteConfirm) {
-		
-		case 1:
-			// 通信処理再現スリープ（笑）
-			try { 
-	            Thread.sleep(1000);
-	        } catch (InterruptedException e) {
-	            System.out.println(e);
-	        }
+			System.out.println(" ");
+			System.out.println( "削除してよろしいですか？");
+
+			System.out.println(" ");
+			System.out.print("削除する : 1 | やめる : 2 >");
+
+			int deleteConfirm;
 			
-			bookList.getBooks().removeIf(book -> book.getId() == id);
-			System.out.println("削除しました");
-			break;
+			try {
+				deleteConfirm = scanner.nextInt();
+			} catch (InputMismatchException e) {
+					System.out.println(" ");
+					System.out.println("選択可能な数字を入力してください");
+					System.out.println(" ");
+					scanner.nextLine();
+					continue;
+				}
+		
+			switch(deleteConfirm) {
+		
+			case 1:
+				// 通信処理再現スリープ（笑）
+				try { 
+	            	Thread.sleep(1000);
+	        	} catch (InterruptedException e) {
+	            	System.out.println(e);
+	        	}
 			
-		case 2:
-			System.out.println("削除処理を中止しました");
-			break;
+				bookList.getBooks().removeIf(book -> book.getId() == id);
+				System.out.println(" ");
+				System.out.println("削除しました");
+				System.out.println(" ");
+				return;
+			
+			case 2:
+				System.out.println(" ");	
+				System.out.println("削除処理を中止しました");
+				System.out.println(" ");
+				return;
+			}
 		}
-		
 	}
 }
+

@@ -1,4 +1,5 @@
 package src;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BookRegist {	
@@ -20,7 +21,18 @@ public class BookRegist {
 		System.out.println("入力内容を登録してよろしいですか？");
         System.out.println(" ");
 		System.out.print("登録 : 1  | 入力しなおす : 2 >");
-		int registCheck = scanner.nextInt();
+
+		int registCheck;
+
+			try {
+				registCheck = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				System.out.println(" ");
+				System.out.println("選択可能な数字を入力してください");
+				System.out.println(" ");
+				scanner.nextLine();
+				return registBook();
+			}
 		
 		switch(registCheck) {
 		
@@ -46,6 +58,7 @@ public class BookRegist {
 		
 		case 2: 
 			System.out.println("書籍登録をやりなおします");
+			System.out.println(" ");
 			
 			return registBook();
 		}
