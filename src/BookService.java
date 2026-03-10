@@ -4,10 +4,13 @@ import java.util.Scanner;
 
 public class BookService {
 
-	private BookList bookList = new BookList();
-	private BookRegist bookRegist = new BookRegist();
+	private final Scanner scanner;
+	private final BookList bookList = new BookList();
+	private final BookRegist bookRegist;
 	
-    public BookService() {
+    public BookService(Scanner scanner) {
+    	this.scanner = scanner;
+    	this.bookRegist = new BookRegist(scanner);
         bookList.registBookList();   // ← サンプル本追加
     }
 	
@@ -28,8 +31,6 @@ public class BookService {
 	}
 	
 	public void deleteBook() {
-		Scanner scanner = new Scanner(System.in);
-
 		while(true) {
 		
 			System.out.println(" ");
@@ -89,4 +90,3 @@ public class BookService {
 		}
 	}
 }
-
