@@ -15,38 +15,23 @@ public class Menu {
 			System.out.println("利用したいサービスの数字を入力してください");
             System.out.println(" ");
 		
-			int serviceNum = input.inputInt("書籍登録 : 1 | 書籍リスト閲覧 : 2 | 登録済み書籍削除 : 3 >");
+			int selectedNumber = input.inputInt("書籍登録 : 1 | 書籍リスト閲覧 : 2 | 登録済み書籍削除 : 3 サービストップに戻る：4 >");
+			MenuType menuType = MenuType.fromNumber(selectedNumber);
 		
-			switch(serviceNum) {
-				case 1:
+			switch(menuType) {
+				case REGISTER:
 					bookService.registerBook();
 					break;
 				
-				case 2:
+				case SHOW_LIST:
 					bookService.showBookList();
 					break;
 					
-				case 3:
+				case DELETE:
 					bookService.deleteBook();
 					break;
-			}
-
-            System.out.println(" ");
-			int nextChoices = input.inputInt("書籍登録へ進む : 1 | 書籍リスト閲覧 : 2 | 登録済み書籍削除 : 3 | サービストップに戻る : 4 >");
 					
-			switch (nextChoices) {
-				case 1:
-					bookService.registerBook();
-					break;
-					
-				case 2:
-					bookService.showBookList();
-					break;
-					
-				case 3:
-					bookService.deleteBook();
-						
-				case 4:
+				case EXIT:
 					continue;
 			}
 		}

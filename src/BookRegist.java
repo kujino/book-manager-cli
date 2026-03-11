@@ -1,5 +1,7 @@
 package src;
 
+import java.time.LocalDate;
+
 public class BookRegist {	
 	private final InputHandler input;
 
@@ -11,31 +13,31 @@ public class BookRegist {
 		while (true) {
 	        System.out.println(" ");
 			System.out.println("ーーー 書籍登録 ーーー");
-	        System.out.println(" ");
+			System.out.println(" ");
 			String title = input.inputString("タイトルを入力してください >");
 		
-	        System.out.println(" ");
-			String purchaseDate = input.inputString("購入日を入力してください(例 : 2026-4-1) >");
+			System.out.println(" ");
+			LocalDate purchaseDate = input.inputDate("購入日を入力してください(例 : 2026-04-01) >");
 		
-	        System.out.println(" ");
+			System.out.println(" ");
 			System.out.println("入力内容を登録してよろしいですか？");
-	        System.out.println(" ");
+			System.out.println(" ");
 
 			int registCheck = input.inputInt("登録 : 1  | 入力しなおす : 2 >");
 		
 			switch(registCheck) {
 		
 			case 1:
-				// 通信処理再現スリープ（笑）
+				// 通信処理再現スリープ
 				try { 
-	                Thread.sleep(1000);
-	            } catch (InterruptedException e) {
-	                System.out.println(e);
-	            }
+				Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					System.out.println(e);
+				}
 			
 				System.out.println(" ");
 				System.out.println("書籍登録が完了しました");
-	            System.out.println(" ");
+				System.out.println(" ");
 				System.out.println("ーーーー 登録内容 ーーーー");
 				System.out.println("タイトル : " + title);
 				System.out.println("購入日 : " + purchaseDate);	
