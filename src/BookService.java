@@ -8,7 +8,7 @@ public class BookService {
 	
     public BookService(InputHandler input) {
 		this.input = input;
-    	this.bookRegist = new BookRegist(input);
+		this.bookRegist = new BookRegist(input);
         bookList.registBookList();   // ← サンプル本追加
     }
 	
@@ -32,7 +32,7 @@ public class BookService {
 		while(true) {
 		
 			System.out.println(" ");
-			int id = input.inputInt("削除したい本のIDを入力してください >");
+			int id = input.inputInt("削除したい本の番号を入力してください >");
 		
 			System.out.println(" ");
 			System.out.println( "削除してよろしいですか？");
@@ -43,12 +43,12 @@ public class BookService {
 			switch(deleteConfirm) {
 		
 			case 1:
-				// 通信処理再現スリープ（笑）
+				// 通信処理再現スリープ
 				try { 
-	            	Thread.sleep(1000);
-	        	} catch (InterruptedException e) {
-	            	System.out.println(e);
-	        	}
+				Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					System.out.println(e);
+				}
 			
 				bookList.getBooks().removeIf(book -> book.getId() == id);
 				System.out.println(" ");

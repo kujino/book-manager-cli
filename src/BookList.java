@@ -11,7 +11,7 @@ public class BookList {
 		bookList.add(new BookData("全てどうでもよくなる本", "2024-5-10"));
 		bookList.add(new BookData("月間よっこらせ 2024-6月号", "2024-6-12"));
 		bookList.add(new BookData("誰も知らない時計の読み方", "2024-6-12"));
-		bookList.add(new BookData("よくわかる紙コップ", "2024-2-24-7-1"));
+		bookList.add(new BookData("よくわかる紙コップ", "2024-7-1"));
 		bookList.add(new BookData("小指を鍛えるとすべてうまくいく", "2024-8-22"));
 		
 	}
