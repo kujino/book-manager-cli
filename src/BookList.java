@@ -1,6 +1,7 @@
 package src;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
 
 public class BookList {
 	
@@ -8,11 +9,11 @@ public class BookList {
 
 	public void registBookList() {
 		
-		bookList.add(new BookData("全てどうでもよくなる本", "2024-5-10"));
-		bookList.add(new BookData("月間よっこらせ 2024-6月号", "2024-6-12"));
-		bookList.add(new BookData("誰も知らない時計の読み方", "2024-6-12"));
-		bookList.add(new BookData("よくわかる紙コップ", "2024-7-1"));
-		bookList.add(new BookData("小指を鍛えるとすべてうまくいく", "2024-8-22"));
+		bookList.add(new BookData("全てどうでもよくなる本", LocalDate.parse("2024-05-10")));
+		bookList.add(new BookData("月間よっこらせ 2024-6月号", LocalDate.parse("2024-06-12")));
+		bookList.add(new BookData("誰も知らない時計の読み方", LocalDate.parse("2024-06-12")));
+		bookList.add(new BookData("よくわかる紙コップ", LocalDate.parse("2024-07-01")));
+		bookList.add(new BookData("小指を鍛えるとすべてうまくいく", LocalDate.parse("2024-08-22")));
 		
 	}
 	

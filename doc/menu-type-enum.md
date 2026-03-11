@@ -1,6 +1,6 @@
 ## メニューをenumで設定しMenuクラスに実装
 MenuType.javaにて
-- REGIST(登録)
+- REGISTER(登録)
 - SHOW_LIST(リスト閲覧)
 - DELETE(削除)
 - EXIT(サービストップへ)  

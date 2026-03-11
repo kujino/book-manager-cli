@@ -1,5 +1,7 @@
 package src;
 
+import java.time.LocalDate;
+
 public class BookRegist {	
 	private final InputHandler input;
 
@@ -15,7 +17,7 @@ public class BookRegist {
 			String title = input.inputString("タイトルを入力してください >");
 		
 			System.out.println(" ");
-			String purchaseDate = input.inputString("購入日を入力してください(例 : 2026-4-1) >");
+			LocalDate purchaseDate = input.inputDate("購入日を入力してください(例 : 2026-04-01) >");
 		
 			System.out.println(" ");
 			System.out.println("入力内容を登録してよろしいですか？");
