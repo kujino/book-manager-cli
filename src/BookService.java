@@ -1,16 +1,14 @@
 package src;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class BookService {
 
-	private final Scanner scanner;
 	private final BookList bookList = new BookList();
 	private final BookRegist bookRegist;
+	private final InputHandler input;
 	
-    public BookService(Scanner scanner) {
-    	this.scanner = scanner;
-    	this.bookRegist = new BookRegist(scanner);
+    public BookService(InputHandler input) {
+		this.input = input;
+    	this.bookRegist = new BookRegist(input);
         bookList.registBookList();   // ← サンプル本追加
     }
 	
@@ -34,36 +32,13 @@ public class BookService {
 		while(true) {
 		
 			System.out.println(" ");
-			System.out.print("削除したい本のIDを入力してください >");
-
-			int id;
-
-				try {
-					id = scanner.nextInt();
-				} catch (InputMismatchException e) {
-					System.out.println(" ");
-					System.out.println("選択可能な数字を入力してください");
-					scanner.nextLine();
-					continue;
-				}
+			int id = input.inputInt("削除したい本のIDを入力してください >");
 		
 			System.out.println(" ");
 			System.out.println( "削除してよろしいですか？");
 
 			System.out.println(" ");
-			System.out.print("削除する : 1 | やめる : 2 >");
-
-			int deleteConfirm;
-			
-			try {
-				deleteConfirm = scanner.nextInt();
-			} catch (InputMismatchException e) {
-					System.out.println(" ");
-					System.out.println("選択可能な数字を入力してください");
-					System.out.println(" ");
-					scanner.nextLine();
-					continue;
-				}
+			int deleteConfirm = input.inputInt("削除する : 1 | やめる : 2 >");
 		
 			switch(deleteConfirm) {
 		
