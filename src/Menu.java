@@ -15,7 +15,7 @@ public class Menu {
 			System.out.println("利用したいサービスの数字を入力してください");
             System.out.println(" ");
 		
-			int selectedNumber = input.inputInt("書籍登録 : 1 | 書籍リスト閲覧 : 2 | 登録済み書籍削除 : 3 サービストップに戻る：4 >");
+			int selectedNumber = input.inputInt("書籍登録 : 1 | 書籍リスト閲覧 : 2 | 登録済み書籍削除 : 3 | サービストップに戻る：4 >");
 			MenuType menuType = MenuType.fromNumber(selectedNumber);
 		
 			switch(menuType) {
