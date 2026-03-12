@@ -3,11 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
 
-public class BookList {
+public class BookRepositoy {
 	
 	private List<BookData> bookList = new ArrayList<>();
 
-	public void registBookList() {
+	public void sampleBookList() {
 		
 		bookList.add(new BookData("全てどうでもよくなる本", LocalDate.parse("2024-05-10")));
 		bookList.add(new BookData("月間よっこらせ 2024-6月号", LocalDate.parse("2024-06-12")));
@@ -23,6 +23,10 @@ public class BookList {
 	
 	public List<BookData> getBooks() {
 		return bookList;
+	}
+
+	public void removeBook(int id) {
+		bookList.removeIf(book -> book.getId() == id);
 	}
 
 }

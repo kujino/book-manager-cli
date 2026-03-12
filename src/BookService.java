@@ -2,14 +2,14 @@ package src;
 
 public class BookService {
 
-	private final BookList bookList = new BookList();
+	private final BookRepositoy bookList = new BookRepositoy();
 	private final BookRegist bookRegist;
 	private final InputHandler input;
 	
     public BookService(InputHandler input) {
 		this.input = input;
 		this.bookRegist = new BookRegist(input);
-        bookList.registBookList();   // ← サンプル本追加
+        bookList.sampleBookList();   // ← サンプル本追加
     }
 	
 	public void registerBook() {
@@ -50,7 +50,8 @@ public class BookService {
 					System.out.println(e);
 				}
 			
-				bookList.getBooks().removeIf(book -> book.getId() == id);
+				// bookList.getBooks().removeIf(book -> book.getId() == id);
+				bookList.removeBook(id);
 				System.out.println(" ");
 				System.out.println("削除しました");
 				System.out.println(" ");
